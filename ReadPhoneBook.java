@@ -12,7 +12,7 @@ public class ReadPhoneBook {
 
     public void read(String fileName) {
         try {
-            FileInputStream fileIn = new FileInputStream(fileName);
+            FileInputStream fileIn = new FileInputStream(fileName + ".ser");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             phoneBook = (HashMap<String,Long>) in.readObject();
             in.close();
@@ -38,13 +38,13 @@ public class ReadPhoneBook {
 	}
 
     public static void main(String [] args) {
-        if (args.length<1) {
+        if (args.length<2) {
 			System.out.println("Insufficient amount of arguments");
 			System.exit(0);
         }
         
-        ReadPhoneBook read = new ReadPhoneBook(Integer.parseInt(args[0]));
-        read.read("phonebook.ser");
+        ReadPhoneBook read = new ReadPhoneBook(Integer.parseInt(args[1]));
+        read.read(args[0]);
         read.describe();
     }
 }
