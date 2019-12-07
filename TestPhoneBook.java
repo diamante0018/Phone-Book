@@ -15,7 +15,7 @@ public class TestPhoneBook {
                 PhoneBook book = new PhoneBook(Integer.parseInt(args[2]));
                 Scanner input = new Scanner(System.in);
                 String name;
-		        Long number;
+		Long number;
 
                 for (int i=0; i<Integer.parseInt(args[2]);i++) {
                     System.out.println("Enter the name: ");
